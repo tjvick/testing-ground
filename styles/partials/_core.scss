@@ -1,4 +1,36 @@
+$color-black: hsla(222, 10%, 10%, 1);
+$color-gray: hsla(222, 10%, 50%, 1);
+$color-white: hsla(0, 0%, 95%, 1);
+$color-primary: hsla(18, 100%, 50%, 1);
+$color-primary-dark: hsla(18, 100%, 20%, 1);
+
+$font-heading: 'Oswald', sans-serif;
+$font-main: 'Montserrat', sans-serif;
+
 html {
-  font-family: Arial, Helvetica, sans-serif;
-  color: red;
+  font-family: $font-main;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+@mixin a-color-const($color) {
+  color: $color;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color;
+  }
+}
+
+.u-clearfix::after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  clear: both;
+  height: 0;
 }

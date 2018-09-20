@@ -1,0 +1,79 @@
+@import "core";
+
+body {
+  background-color: $color-black;
+  color: $color-white;
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 3.0rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.c-page-intro {
+  text-align: center;
+  padding: 2rem;
+}
+
+.c-page-intro__title {
+  padding: 0;
+}
+
+.c-page-intro__text {
+  font-style: italic;
+  padding-top: 2rem;
+}
+
+.c-content-container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.c-button {
+  border: 2px solid;
+  max-width: 30rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  padding: 1em 2em;
+  color: $color-primary;
+  margin: 2rem;
+  box-sizing: border-box;
+}
+
+.c-button--on-dark {
+  border-color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &:active, {
+    background-color: $color-primary-dark;
+  }
+}
+
+.u-font-heading {
+  font-family: $font-heading;
+}
+
+.o-flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.u-flex-1 {
+  flex: 1;
+}
