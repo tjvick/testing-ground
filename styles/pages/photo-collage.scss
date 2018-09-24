@@ -1,1 +1,32 @@
 @import '../partials/page';
+
+.c-collage-container {
+  width: 90%;
+  margin: 0 auto;
+  column-width: 20rem;
+  column-count: auto;
+}
+
+.c-member {
+  max-width: 20rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  break-inside: avoid;
+}
+
+.c-member__person {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.c-member__location {
+  font-size: 1.4rem;
+  color: $color-gray;
+  margin: 0.5rem 0;
+}
+
+.c-member__img {
+  width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}
