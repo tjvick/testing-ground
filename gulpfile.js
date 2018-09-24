@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var connect = require("gulp-connect");
 var babel = require("gulp-babel");
 var buffer = require('gulp-buffer');
+var rename = require('gulp-rename');
 var responsive = require('gulp-responsive');
 var tap = require('gulp-tap');
 var uglify = require('gulp-uglify');
@@ -50,6 +51,14 @@ var paths = {
   'lambda': {
     src: 'scripts/_lambda',
     watch: 'scripts/_lambda/**/*.js',
+  },
+  'netlifyToml': {
+    src: {
+      dev: 'netlify.private.toml',
+      prod: 'netlify.public.toml',
+    },
+    rename: 'netlify.toml',
+    dest: '.',
   }
 }
 
@@ -181,8 +190,20 @@ function runJekyll(callback) {
 }
 
 
-// NETLIFY LAMBDA tasks
-function buildNetlify(callback) {
+// NETLIFY tasks
+function copyNetlifyTomlProd() {
+  return gulp.src(paths.netlifyToml.src.prod)
+    .pipe(rename(paths.netlifyToml.rename))
+    .pipe(gulp.dest(paths.netlifyToml.dest));
+}
+
+function copyNetlifyTomlDev() {
+  return gulp.src(paths.netlifyToml.src.dev)
+    .pipe(rename(paths.netlifyToml.rename))
+    .pipe(gulp.dest(paths.netlifyToml.dest));
+}
+
+function buildNetlifyLambda(callback) {
   let options = ['build', paths.lambda.src];
 
   const netlify = spawn('netlify-lambda', options)
@@ -203,7 +224,7 @@ function buildNetlify(callback) {
   })
 }
 
-function serveNetlify(callback) {
+function serveNetlifyLambda(callback) {
   let options = ['serve', paths.lambda.src];
 
   const netlify = spawn('netlify-lambda', options)
@@ -223,6 +244,9 @@ function serveNetlify(callback) {
     callback();
   })
 }
+
+var buildNetlify = gulp.series(copyNetlifyTomlProd, buildNetlifyLambda);
+var serveNetlify = gulp.series(copyNetlifyTomlDev, serveNetlifyLambda);
 
 function serveSite() {
   connect.server({
