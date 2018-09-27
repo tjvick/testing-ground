@@ -3,13 +3,14 @@
 .c-collage-container {
   width: 90%;
   margin: 0 auto;
-  column-width: 20rem;
+  column-width: 25rem;
   column-count: auto;
 }
 
 .c-member {
-  max-width: 20rem;
-  margin: 0 auto;
+  max-width: 25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   margin-bottom: 3rem;
   break-inside: avoid;
 }
@@ -26,6 +27,31 @@
 }
 
 .c-member__img {
+  width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}
+
+.c-group {
+  max-width: 25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+  break-inside: avoid;
+}
+
+.c-person__name {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.c-person__location {
+  font-size: 1.4rem;
+  color: $color-gray;
+  margin: 0.5rem 0;
+}
+
+.c-group__img {
   width: 100%;
   height: auto;
   margin: 0.5rem 0;
