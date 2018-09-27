@@ -8,14 +8,40 @@ script-srcs:
 ---
 
 <h2>
-  Photo collage testing.
+  Photo Collage Testing
 </h2>
-<div>
-  <div class="c-collage-container" id="vue-app">
-    <div class="c-member" v-for="person in clubData">
-      <p class="c-member__person">${ person.name }</p>
-      <p class="c-member__location">${ person.location.toUpperCase() }</p>
-      <img class="c-member__img" v-if="showImg(person)" v-bind:src=person.imageUrl v-bind:alt=person.name>
+<div id="vue-app">
+  <h3>
+    <input type="checkbox" id="checkIndiv" v-model="checked">
+    <label for="checkIndiv">Individuals</label>
+  </h3>
+  <div>
+    <div class="c-collage-container" v-if="checked">
+      <div class="c-member" v-for="person in clubData">
+        <p class="c-member__person">${ person.name }</p>
+        <p class="c-member__location">${ person.location.toUpperCase() }</p>
+        <img class="c-member__img" v-if="showImg(person)" v-bind:src=person.imageUrl v-bind:alt=person.name>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="vue-app-2">
+  <h3>
+    <input type="checkbox" id="checkGroups" v-model="checked">
+    <label for="checkGroups">Groups</label>
+  </h3>
+  <div class="c-collage-container" v-if="checked">
+    <div class="c-group" v-for="group in clubData">
+      <p class="c-group__name" v-if="showGroupName(group)">${ group.groupName[0] }</p>
+      <div class="c-person" v-for="person in group.people">
+        <p class="c-person__name">${ person.name }</p>
+        <p class="c-person__location" v-if="showLocation(person)">${ person.location.toUpperCase() }</p>
+      </div>
+      <div class="u-siema">
+        <div v-for="imageUrl in group.imageUrls">
+          <img class="c-group__img" v-if="showImgGroup(group)" v-bind:src="imageUrl" alt="Bike group photo">
+        </div>
+      </div>
     </div>
   </div>
 </div>
