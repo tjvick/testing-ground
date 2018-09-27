@@ -99,12 +99,12 @@ function compileJS() {
       file.contents = browserify(file.path, {debug: true}).bundle();
     }))
     .pipe(buffer())
-    // .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(babel())
-    // .pipe(uglify().on('error', function(e) {
-    //   console.log(e);
-    // }))
-    // .pipe(sourcemaps.write('./'))
+    .pipe(uglify().on('error', function(e) {
+      console.log(e);
+    }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.js.dest));
 }
 
@@ -273,7 +273,7 @@ function watch() {
   gulp.watch(paths.jsdir.src, moveJS);
   gulp.watch(paths.media.src, compressImages);
   gulp.watch(paths.mediadir.src, moveMedia);
-  gulp.watch(paths.lambda.watch, buildNetlify);
+  gulp.watch(paths.lambda.watch, buildNetlifyLambda);
   gulp.watch(paths.jekyll.src, buildDev);
 }
 
