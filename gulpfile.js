@@ -128,6 +128,21 @@ function compressImages() {
             suffix: '-2000px'
           }
         },
+        // shrink files that are large
+        {
+          width: 400,
+          withoutEnlargement: true,
+          rename: {
+            suffix: '-400px'
+          }
+        },
+        {
+          width: 160,
+          withoutEnlargement: true,
+          rename: {
+            suffix: '-160px'
+          }
+        },
         // apply default compression without rename
         {
           progressive: true,
