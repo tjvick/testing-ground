@@ -1,4 +1,5 @@
 @import "core";
+@import "fa-light";
 
 body {
   background-color: $color-black;
@@ -44,14 +45,17 @@ p {
 .c-button {
   border: 2px solid;
   max-width: 30rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  padding: 1em 2em;
-  color: $color-primary;
   margin: 2rem;
   box-sizing: border-box;
+}
+
+.c-button__link {
+  text-align: center;
+  text-decoration: none;
+  color: $color-primary;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1em 2em;
 }
 
 .c-button--on-dark {
@@ -76,6 +80,10 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.u-align-items-center {
+  align-items: center;
 }
 
 .u-flex-1 {
