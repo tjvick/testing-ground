@@ -42,8 +42,12 @@ var paths = {
     dest: siteDest + '/media',
   },
   'mediadir': {
-    src: 'media/_direct/*',
+    src: 'media/_direct/**/*',
     dest: siteDest + '/media',
+  },
+  'fonts': {
+    src: 'webfonts/**/*',
+    dest: siteDest + '/webfonts',
   },
   'jekyll': {
     src: siteSrc + '/**/*',
@@ -178,7 +182,12 @@ function moveMedia() {
     .pipe(gulp.dest(paths.mediadir.dest));
 }
 
-var buildMedia =  gulp.series(gulp.parallel(cleanMedia, cleanMediaDir), gulp.parallel(compressImages, moveMedia));
+function moveFonts() {
+  return gulp.src(paths.fonts.src)
+    .pipe(gulp.dest(paths.fonts.dest));
+}
+
+var buildMedia =  gulp.series(gulp.parallel(cleanMedia, cleanMediaDir), gulp.parallel(compressImages, moveMedia, moveFonts));
 
 // JEKYLL tasks
 function runJekyll(callback) {
