@@ -1,0 +1,104 @@
+$container-padding: 0.5rem;
+$frame-height-aspect: 80%;
+$changer-margin: $container-padding*2;
+$changer-size: 2.5rem;
+$changer-color-background: hsla(0, 0%, 100%, 0.5);
+$changer-color-icon: hsla(0, 0%, 40%, 1.0);
+$changer-color-icon-hover: $color-black;
+
+.c-carousel {
+  // utility classes kept inside carousel
+  .u-relative {
+    position: relative;
+  }
+
+  .u-absolute-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.c-carousel__frame {
+  overflow: hidden;
+  width: 100%;
+  padding: $frame-height-aspect / 2 0;
+  box-sizing: border-box;
+}
+
+.c-carousel__strip {
+  // width: js-generated;
+  // transform: translate3d(0, 0, 0);
+  transition: transform 0.6s;
+  height: 100%;
+}
+
+.c-carousel__image-container {
+  // width: js-generated;
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  padding: $container-padding;
+  box-sizing: border-box;
+}
+
+.c-carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0px 0px 0.5rem hsla(0, 0%, 0%, 1.0));
+}
+
+.c-carousel__count-indicator {
+  font-size: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: $container-padding;
+  width: 100%;
+  text-align: center;
+  color: #eee;
+}
+
+.c-indicator-bullet {
+  display: inline-block;
+  width: 2rem;
+  line-height: 2rem;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.c-carousel__changer {
+  font-size: $changer-size / 2;
+  height: $changer-size;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: - $changer-size / 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-carousel__change-btn {
+  cursor: pointer;
+  transition: all 250ms;
+  width: $changer-size;
+  height: $changer-size;
+  line-height: $changer-size;
+  text-align: center;
+  border-radius: 50%;
+  color: $changer-color-icon;
+  background-color: $changer-color-background;
+  margin-left: $changer-margin;
+  margin-right: $changer-margin;
+  box-shadow: (0 0 10px 0 hsla(0, 0%, 0%, 0.4));
+
+  &:hover {
+    color: $changer-color-icon-hover;
+  }
+}
+

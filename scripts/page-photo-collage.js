@@ -1,5 +1,7 @@
 const { Siema } = require('./_util/siema.js');
 
+// make photo-display component available
+require('./components/photo-display.js');
 
 const functionURL = window.location.hostname === 'localhost' ? 'http://localhost:9000' : '/.netlify/functions';
 

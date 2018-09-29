@@ -64,7 +64,10 @@ p {
   &:hover,
   &:focus {
     background-color: $color-primary;
-    color: $color-white;
+
+    .c-button__link {
+      color: $color-white;
+    }
   }
 
   &:active, {

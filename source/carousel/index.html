@@ -4,39 +4,15 @@ stylesheet-hrefs:
 - /css/carousel.css
 script-srcs:
 - https://cdn.jsdelivr.net/npm/vue/dist/vue.js
-- /js/carousel.js
+- /js/page-carousel.js
 ---
 
 <h2>
   Image Carousel
 </h2>
 <section class="section" id="app">
-  <div class="card-content">
-
-      <div class="card-carousel">
-          <div class="card-img u-relative">
-            <div class="u-absolute-fill">
-              <div class="slideable-frame" ref="frame">
-                <div v-for="(image, index) in images" class="image-holder">
-                  <img v-bind:src="image.big" alt="">
-                </div>
-              </div>
-              <div class="actions">
-                <span class="prev" v-on:click="prev">
-                  <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="next" v-on:click="next">
-                  <i class="fas fa-chevron-right"></i>
-                </span>
-              </div>
-              <div class="count-indicator">
-                <div class="count-indicator__bullet" v-for="(image, index) in images" @click="activateImage(index)">
-                  <span v-if="!isActive(index)">&#9898;</span>
-                  <span v-if="isActive(index)">&#9899;</span>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
+  <div class="c-photo-display-wrapper">
+    <photo-display v-bind:image-urls="['/media/image3-2000px.jpg']"></photo-display>
+    <photo-display v-bind:image-urls="['/media/image2-2000px.jpg', '/media/image1-2000px.jpg']"></photo-display>
   </div>
 </section>

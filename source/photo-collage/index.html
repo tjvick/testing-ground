@@ -4,7 +4,7 @@ stylesheet-hrefs:
 - /css/photo-collage.css
 script-srcs:
 - https://cdn.jsdelivr.net/npm/vue/dist/vue.js
-- /js/photo-collage.js
+- /js/page-photo-collage.js
 ---
 
 <h2>
@@ -37,11 +37,13 @@ script-srcs:
         <p class="c-person__name">${ person.name }</p>
         <p class="c-person__location" v-if="showLocation(person)">${ person.location.toUpperCase() }</p>
       </div>
-      <div class="u-siema">
+      <photo-display v-bind:image-urls="group.imageUrls">
+      </photo-display>
+      <!-- <div class="u-siema">
         <div v-for="imageUrl in group.imageUrls">
           <img class="c-group__img" v-if="showImgGroup(group)" v-bind:src="imageUrl" alt="Bike group photo">
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
