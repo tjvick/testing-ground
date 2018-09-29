@@ -1,5 +1,3 @@
-const { Siema } = require('./_util/siema.js');
-
 // make photo-display component available
 require('./components/photo-display.js');
 
@@ -13,14 +11,13 @@ function isBlank(property) {
   );
 }
 
-const showImg = person => !isBlank(person.imageUrl);
 const showGroupName = group => !isBlank(group.groupName);
 const showLocation = person => !isBlank(person.location);
-const showImgGroup = group => !isBlank(group.imageUrls);
+const showPhotos = group => !isBlank(group.imageUrls);
 
 const appData = {
   clubData: [],
-  checked: false,
+  checked: true,
 };
 
 const app = new Vue({
@@ -28,49 +25,18 @@ const app = new Vue({
   el: '#vue-app',
   data: appData,
   methods: {
-    showImg,
-  },
-});
-
-const app2Data = {
-  clubData: [],
-  checked: true,
-};
-
-const app2 = new Vue({
-  delimiters: ['${', '}'],
-  el: '#vue-app-2',
-  data: app2Data,
-  methods: {
     showGroupName,
     showLocation,
-    showImgGroup,
+    showPhotos,
   },
 });
-
-
-
-fetch(`${functionURL}/getData`, {
-  method: 'GET',
-})
-.then(res => res.json())
-.then(res => {
-  appData.clubData = res;
-})
-.catch(error => console.log('Error:', error));
 
 
 fetch(`${functionURL}/getDataGrouped`, {
   method: 'GET',
 })
 .then(res => res.json())
-.then(res => {
-  app2Data.clubData = res;
-})
-.then(res => {
-  new Siema({
-    selector: '.u-siema',
-    loop: true,
-  });
+.then((res) => {
+  appData.clubData = res;
 })
 .catch(error => console.log('Error:', error));
