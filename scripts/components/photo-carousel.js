@@ -42,7 +42,7 @@ Vue.component('photo-carousel', {
     },
     containerStyle() {
       return {
-        width: `${100 / this.nImages}%`
+        width: `${100 / this.nImages}%`,
       }
     }
   },
