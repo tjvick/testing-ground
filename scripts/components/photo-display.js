@@ -18,8 +18,6 @@ Vue.component('photo-display', {
   },
   computed: {
     showCarousel() {
-      console.log('photo-display:', this.imageUrls);
-      console.log('photo-display:', this.imageUrls.length);
       if (this.imageUrls.length > 1) {
         return true;
       }

@@ -33,8 +33,6 @@ Vue.component('photo-carousel', {
   },
   computed: {
     nImages() {
-      console.log('photo-carousel:', this.imageUrls);
-      console.log('photo-carousel:', this.imageUrls.length);
       return this.imageUrls.length;
     },
     stripStyle() {
