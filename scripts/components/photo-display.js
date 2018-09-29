@@ -27,6 +27,8 @@ Vue.component('photo-display', {
     showAnything() {
       if (this.imageUrls === undefined) {
         return false;
+      } else if (this.imageUrls.length === 0) {
+        return false;
       }
 
       return true;
