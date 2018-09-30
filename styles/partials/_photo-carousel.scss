@@ -27,7 +27,7 @@ $image-shadow-spread: 0.2rem;
 .c-carousel__frame {
   overflow: hidden;
   width: 100%;
-  padding: $frame-height-aspect / 2 0;
+  padding: $frame-height-aspect-ratio / 2 0;
   box-sizing: border-box;
 }
 
